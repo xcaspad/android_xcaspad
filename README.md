@@ -20,6 +20,6 @@ So any contribution to the Android front end are welcome.
 Thanks to Bernard Parisse for write and share the Giac library.
 
 For all related math issues see giac homepage:
-http://www-fourier.ujf-grenoble.fr/~parisse/giac.html (English)
+http://www-fourier.ujf-grenoble.fr/~parisse/giac.html
 
 
