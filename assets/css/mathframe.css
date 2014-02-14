@@ -1,0 +1,52 @@
+body{
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background-color: #EEE;	
+}
+
+.printout {
+    background:#fff;
+    overflow-x: auto;
+}
+
+
+.printout.expression {
+        color:#345e0c;
+        border-top:1px solid #dddddd;
+        border-left:1px solid #dddddd;
+        border-right:1px solid #dddddd;
+        padding:5px 5px 5px 5px;
+}
+
+.expression .MathJax_SVG_Display{
+        text-align:left !important;
+}
+
+.printout.expression g{
+        stroke: #345e0c !important;
+        fill: #345e0c !important;
+}
+
+.printout.success {
+        color:#2b487f;
+        border-left:1px solid #dddddd;
+        border-right:1px solid #dddddd;
+        border-bottom:1px solid #dddddd;
+        margin-bottom:2px;
+        padding:5px 5px 5px 5px;
+}
+
+.success .MathJax_SVG_Display{
+        text-align:right !important;
+}
+
+.printout.success g{
+        stroke: #2b487f !important;
+        fill: #2b487f !important;
+}
+
+#mathArea {
+        margin: 2px 4px 2px 4px;
+}
+
