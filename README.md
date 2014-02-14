@@ -21,6 +21,5 @@ Thanks to Bernard Parisse for write and share the Giac library.
 
 For all related math issues see giac homepage:
 http://www-fourier.ujf-grenoble.fr/~parisse/giac.html (English)
-http://www-fourier.ujf-grenoble.fr/~parisse/giac_fr.html (French)
-http://www-fourier.ujf-grenoble.fr/~parisse/giac_es.html (Espanol)
+
 
