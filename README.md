@@ -21,6 +21,8 @@ Thanks to Bernard Parisse for write and share the Giac library.
 
 For front end related issues:mucephimobile@gmail.com
 
+jni libqtgiac source code : http://code.google.com/p/libqtgiac/
+
 For all related math issues see giac homepage:
 http://www-fourier.ujf-grenoble.fr/~parisse/giac.html
 
