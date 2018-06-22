@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="org.kde.necessitas.mucephi.android_xcas.XcasPadActivity"
+    tools:showIn="@layout/app_bar_xcas_pad">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_outputs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/txt_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/row_prettyprint_operation"/>
+
+    <org.kde.necessitas.mucephi.android_xcas.inputtextautocomplete.InputTextView
+        android:id="@+id/txt_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="type operation"
+        android:inputType="none|text|textMultiLine|textWebEditText|textFilter|textNoSuggestions|textVisiblePassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_doit"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--<Button
+        android:id="@+id/btn_doit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Ok"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="8dp" />-->
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_doit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:tint="@android:color/background_light"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_outputs"
+        app:srcCompat="@drawable/ic_menu_send" />
+
+</android.support.constraint.ConstraintLayout>

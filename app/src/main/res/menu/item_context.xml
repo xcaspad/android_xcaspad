@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/context_zoom_in"
+        android:orderInCategory="101"
+        android:title="zoom in"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/context_copy_text"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="copy text" />
+    <item
+        android:id="@+id/context_simplify"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="simplify" />
+    <item
+        android:id="@+id/context_normal"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="normal" />
+    <item
+        android:id="@+id/context_factor"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="factor" />
+    <item
+        android:id="@+id/context_approx"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="approx" />
+    <item
+        android:id="@+id/context_exact"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="exact" />
+    <item
+        android:id="@+id/context_eval"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="eval" />
+</menu>
