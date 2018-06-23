@@ -29,7 +29,7 @@ foo@bar:~$ cd giac-1.4.9
 foo@bar:~$ cp src/config.h.android src/config.h
 foo@bar:~$ git clone https://github.com/xcaspad/android_xcaspad.git
 foo@bar:~$ cd android_xcaspad/jni/
-foo@bar:~$ ~/android-ndk-r10/ndk-build
+foo@bar:~$ ~/android-ndk-r10/android-ndk-r10e/ndk-build
 ```
 
 * Once again JNI libs(armeabi-v7a, x86) are compiled we can procced to open the Android Studio project and build the Apk.  
