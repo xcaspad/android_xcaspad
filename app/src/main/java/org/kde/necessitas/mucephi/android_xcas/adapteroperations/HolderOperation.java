@@ -1,5 +1,7 @@
 package org.kde.necessitas.mucephi.android_xcas.adapteroperations;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by leonel on 24/11/17.
  */
@@ -8,8 +10,8 @@ public class HolderOperation {
 
     private String str_input;
     private String str_output;
-    private byte[] bmp_input;
-    private byte[] bmp_output;
+    private Bitmap bmp_input;
+    private Bitmap bmp_output;
 
     public String getStrInput() {
         return str_input;
@@ -27,19 +29,19 @@ public class HolderOperation {
         this.str_output = str_output;
     }
 
-    public byte[] getBmpInput() {
+    public Bitmap getBmpInput() {
         return bmp_input;
     }
 
-    public void setBmpInput(byte[] bmp_input) {
+    public void setBmpInput(Bitmap bmp_input) {
         this.bmp_input = bmp_input;
     }
 
-    public byte[] getBmpOutput() {
+    public Bitmap getBmpOutput() {
         return bmp_output;
     }
 
-    public void setBmpOutput(byte[] bmp_output) {
+    public void setBmpOutput(Bitmap bmp_output) {
         this.bmp_output = bmp_output;
     }
 }

@@ -67,20 +67,17 @@ public class AdapterOperations extends RecyclerView.Adapter<AdapterOperations.Vi
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
 
-        Bitmap bitmap;
-        byte[] raw_bytes = mDataset.get(position).getBmpInput();
+        Bitmap bitmapInput = mDataset.get(position).getBmpInput();
 
-        if(raw_bytes != null) {
-            bitmap = BitmapFactory.decodeByteArray(raw_bytes, 0, raw_bytes.length);
-            holder.imgInput.setImageBitmap(bitmap);
+        if(bitmapInput != null) {
+            holder.imgInput.setImageBitmap(bitmapInput);
         }
 
-        if(raw_bytes != null) {
-            raw_bytes = mDataset.get(position).getBmpOutput();
-            bitmap = BitmapFactory.decodeByteArray(raw_bytes, 0, raw_bytes.length);
-            holder.imgOutput.setImageBitmap(bitmap);
-        }
+        Bitmap bitmapOutput = mDataset.get(position).getBmpOutput();
 
+        if(bitmapOutput != null) {
+            holder.imgOutput.setImageBitmap(bitmapOutput);
+        }
 
         holder.imgInput.setOnClickListener(new View.OnClickListener() {
             @Override

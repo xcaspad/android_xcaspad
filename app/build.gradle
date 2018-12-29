@@ -6,8 +6,8 @@ android {
         applicationId "org.kde.necessitas.mucephi.android_xcas"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 12
-        versionName "2dnr"
+        versionCode 13
+        versionName "cairo_render"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

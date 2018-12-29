@@ -34,11 +34,6 @@ public class AppSpace extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-
-        Calculator.initAssetManager(getResources().getAssets());
-        Calculator.setWorkDir(getFilesDir().getAbsolutePath());
-
         density = getResources().getDisplayMetrics().density;
-
     }
 }

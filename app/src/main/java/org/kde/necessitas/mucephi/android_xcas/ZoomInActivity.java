@@ -25,6 +25,8 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import org.giac.xcaspad.Calculator;
+
 public class ZoomInActivity extends AppCompatActivity {
 
     @Override
@@ -32,10 +34,10 @@ public class ZoomInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zoom_in);
 
-        byte[] img = getIntent().getByteArrayExtra("img");
+        String operation = getIntent().getStringExtra("operation");
 
-        if(img != null) {
-            Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0, img.length);
+        if(operation != null) {
+            Bitmap bitmap = Calculator.getImageBytes(operation, 0.169, 0.282, 0.498);
             ((ImageView) findViewById(R.id.img_zoom_in)).setImageBitmap(bitmap);
         }
     }

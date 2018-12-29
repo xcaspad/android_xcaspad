@@ -1,6 +1,8 @@
 package org.giac.xcaspad;
 
-import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 
 import org.kde.necessitas.mucephi.android_xcas.AppSpace;
 import org.kde.necessitas.mucephi.android_xcas.adapteroperations.HolderOperation;
@@ -16,10 +18,6 @@ import org.kde.necessitas.mucephi.android_xcas.adapteroperations.HolderOperation
 public class Calculator {
 
     static {
-        System.loadLibrary("freetype");
-        System.loadLibrary("png");
-        System.loadLibrary("pngwriter");
-        System.loadLibrary("giac");
         System.loadLibrary("xcaspad");
     }
 
@@ -27,21 +25,13 @@ public class Calculator {
 
     public native static String executeOperation(String operation);
 
-    /*Its needed start the asset manager in order tho get access to the fonts to build the 2d pretty print results */
+    public native static Bitmap getBitmap(int windowsize, int fontsize, double r, double g, double b, String operation);
 
-    public native static void initAssetManager(AssetManager mgr);
+    public native static String getImageBase64(int windowsize, int fontsize, double r, double g, double b, String operation);
 
-    /*This function convert an string into a 2d pretty print */
+    public native static byte[] getImageBytes(int windowsize, int fontsize, double r, double g, double b, String operation);
 
-    public native static byte[] imageBytes(int windowsize, int fontsize, int fontsizefix, int windowfix, int backgroundcolor, double r, double g, double b, String operation);
-
-    /*Its needed to set an work dir to produce temporary png files as 2d pretty print results  that wil be retrieved and sowed as results*/
-
-    public native static void setWorkDir(String file_png_path);
-
-    /*This class holds the two pretty print expressions the input and output.
-      Finally it produces the two 2d pretty print expressions into image bytes.
-    */
+    public native static byte[] getImageBytesBase64(int windowsize, int fontsize, double r, double g, double b, String operation);
 
     public static HolderOperation prettyPrint(String input){
 
@@ -56,7 +46,6 @@ public class Calculator {
 
             operation.setBmpInput(getImageBytes(input, 0.169, 0.282, 0.498));
             operation.setBmpOutput(getImageBytes(result, 0.204, 0.369, 0.047));
-
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -65,30 +54,50 @@ public class Calculator {
         return operation;
     }
 
-    /*  Finally the 2d pretty print image bytes from the JNI C++ code are retrieved from this function.
-        For an optimal 2d pretty print image size, the device resolution is checked.
-        Some of this parameters are an horrible hacks (fontsizefix and windowfix) that are needed
-        to adjust the 2d pretty print image. please fix it.
-    */
+    public static Bitmap getImageBytes(String input, double r, double g, double b) {
 
-    private static byte[] getImageBytes(String input, double r, double g, double b) {
+        return getImageByMethod("array", input, r, g, b);
 
+    }
+
+    private static Bitmap getImageByMethod(String method, String input, double r, double g, double b){
+
+        Bitmap bitmap = null;
+        int fontSize = getFontSize();
+
+        if(method.equals("base64")){
+            String encodedImage = getImageBase64(9000, fontSize, r, g, b, input);
+            byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
+            bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        }
+        else if(method.equals("array")) {
+            byte[]  raw_bytes = getImageBytes(9000, fontSize, r, g, b, input);
+            bitmap = BitmapFactory.decodeByteArray(raw_bytes, 0, raw_bytes.length);
+        }
+        else if(method.equals("bitmap")) {
+            bitmap = getBitmap(9000, fontSize, r, g, b, input);
+        }
+
+        return bitmap;
+    }
+
+    private static int getFontSize(){
 
         if (AppSpace.density >= 4.0) {
-            return imageBytes(9000, 42, 10,12, 65535, r, g, b, input);
+            return 42;
         }
         if (AppSpace.density >= 3.0) {
-            return imageBytes(9000, 36, 8,10, 65535, r, g, b, input);
+            return 36;
         }
         if (AppSpace.density >= 2.0) {
-            return imageBytes(9000, 24, 6,6, 65535, r, g, b, input);
+            return 24;
         }
         if (AppSpace.density >= 1.5) {
-            return imageBytes(9000, 18, 6,6, 65535, r, g, b, input);
+            return 18;
         }
         if (AppSpace.density >= 1.0) {
-            return imageBytes(9000, 14, 6,6, 65535, r, g, b, input);
+            return 14;
         }
-        return imageBytes(9000, 14, 6,6, 65535, r, g, b, input);
+        return 14;
     }
 }

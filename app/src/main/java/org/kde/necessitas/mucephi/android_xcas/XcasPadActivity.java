@@ -24,6 +24,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -123,7 +124,7 @@ public class XcasPadActivity extends AppCompatActivity
 
         OperationContextMenu operationContextMenu = new OperationContextMenu(this, new OperationContextMenu.ContextMenuListener() {
 
-            byte[] img;
+            Bitmap img;
             String operation;
 
             @Override
@@ -141,7 +142,7 @@ public class XcasPadActivity extends AppCompatActivity
             @Override
             public void contextZoomIn() {
                 Intent intentZoomIn = new Intent(getApplicationContext(), ZoomInActivity.class);
-                intentZoomIn.putExtra("img", img);
+                intentZoomIn.putExtra("operation", operation);
                 startActivityForResult(intentZoomIn, ACTIVITY_ZOOMIN);
             }
 
@@ -189,7 +190,7 @@ public class XcasPadActivity extends AppCompatActivity
             public void onClick(View v) {
 
                 String input = txtInputOperation.getText().toString();
-
+                //input = "some_tests";
                 if(input.equals("some_tests")) {
                     for (String op : TestsOperations.operations) {
                         performOperation(op);
